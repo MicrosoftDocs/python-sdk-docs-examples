@@ -1,5 +1,3 @@
-# Code for https://docs.microsoft.com/azure/developer/python/azure-sdk-example-storage?tabs=cmd
-
 import os, random
 
 # Import the needed management objects from the libraries. The azure.common library
