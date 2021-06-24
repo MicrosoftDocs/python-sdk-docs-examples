@@ -1,0 +1,1 @@
+Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.
