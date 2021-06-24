@@ -1,0 +1,1 @@
+az group create -n PythonAzureExample-rg -l centralus
