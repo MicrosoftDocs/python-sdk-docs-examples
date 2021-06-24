@@ -9,13 +9,16 @@ credential = AzureCliCredential()
 # Retrieve subscription ID from environment variable.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
+# Retrieve the resource group to use, defaulting to "myResourceGroup".
+resource_group = os.getenv("RESOURCE_GROUP", "myResourceGroup")
+
 # Obtain the management object for resources.
 resource_client = ResourceManagementClient(credential, subscription_id)
 
 # Retrieve the list of resources in "myResourceGroup" (change to any name desired).
 # The expand argument includes additional properties in the output.
 resource_list = resource_client.resources.list_by_resource_group(
-    "myResourceGroup", expand = "createdTime,changedTime")
+    resource_group, expand = "createdTime,changedTime")
 
 # Show the groups in formatted output
 column_width = 36
