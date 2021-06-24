@@ -18,6 +18,8 @@ See the individual source files for the articles that use the code.
     pip install -r requirements.txt
     ```
 
+1. Check the code for any additional environment variables you may need to define. The article associated with the code explains these details.
+
 1. Run `python` with the script of your choice.
 
 ## Contributing
