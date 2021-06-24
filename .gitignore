@@ -1,3 +1,17 @@
+# Project-specific
+.venv
+.vscode
+.azure
+__pycache__
+setenv.cmd
+clearenv.cmd
+setenv-*.cmd
+credentials*.json
+act.cmd
+deact.cmd
+uninstall.txt
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
