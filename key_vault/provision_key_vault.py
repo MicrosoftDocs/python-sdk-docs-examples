@@ -95,7 +95,6 @@ print(f"Provisioned key vault {key_vault1.name} in the {key_vault1.location} reg
 
 
 # Provision a Key Vault using inline JSON
-
 poller = keyvault_client.vaults.begin_create_or_update(
     RESOURCE_GROUP_NAME,
     KEY_VAULT_NAME_B,
