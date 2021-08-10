@@ -15,6 +15,8 @@ from azure.identity import EnvironmentCredential
 #  or:
 #     AZURE_USERNAME and AZURE_PASSWORD
 
+# NOTE: AZURE_SUBSCRIPTION_ID isn't used directly by EnvironmentCredential and is used here
+# only for convenience. You can retrieve the subscription ID from any suitable source.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 credential = EnvironmentCredential()
