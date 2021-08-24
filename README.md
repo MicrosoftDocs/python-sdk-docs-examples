@@ -2,9 +2,13 @@
 
 This repository contains code used in articles on the [Azure for Python Developers](https://docs.microsoft.com/en-us/azure/developer/python/) site.
 
-The code specifically appears in the SDK examples starting with [Provision a resource group](https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group).
+Much of the code appears in the SDK examples starting with [Provision a resource group](https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group).
 
 See the individual source files for the articles that use the code.
+
+Other folders contain Python snippets used in the documentation. Some of the files are snippets only, rather than full samples, and are not runnable. Contributions to make these snippets runnable are welcome.
+
+Note also that the [docs source files](https://github.com/MicrosoftDocs/azure-dev-docs) contain direct line number references to some of the files in this repo, so changes to these files may require changes to the docs.
 
 ## Running the samples
 
