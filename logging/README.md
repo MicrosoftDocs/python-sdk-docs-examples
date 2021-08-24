@@ -1,0 +1,1 @@
+NOTE: the files in this folder are not runnable as they were merely copied from the existing documentation to migrate inline code to a repo. Any contributor is welcome to turn these snippets into runnable samples.
