@@ -33,6 +33,6 @@ secret_client = SecretClient(vault_url=vault_url, credential=credential)
 #    environment variable cannot be found).
 # 2. The app identity cannot be authenticated using the information in the credential object.
 # 3. The app identity is not authorized to perform the requested operation on the
-#    resource (identified in this case by the vault_url.
+#    resource (identified in this case by the vault_url).
 
 retrieved_secret = secret_client.get_secret("secret-name-01")
