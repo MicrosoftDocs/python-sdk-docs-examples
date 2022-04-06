@@ -1,7 +1,7 @@
 import os
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD as CLOUD
 from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
-from azure.identity import DefaultAzureCredential
+from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 
 # Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID and
 # AZURE_TENANT_ID environment variables
@@ -10,7 +10,7 @@ tenant_id = os.environ["AZURE_TENANT_ID"]
 
 # When using sovereign domains (that is, any cloud other than AZURE_PUBLIC_CLOUD),
 # you must use an authority with DefaultAzureCredential.
-credential = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
 
 resource_client = ResourceManagementClient(
     credential, subscription_id,
