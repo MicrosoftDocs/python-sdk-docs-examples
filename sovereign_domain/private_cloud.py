@@ -13,7 +13,7 @@ stack_cloud = get_cloud_from_metadata_endpoint("https://contoso-azurestack-arm-e
 
 # When using a private cloud, you must use an authority with DefaultAzureCredential.
 # The active_directory endpoint should be a URL like https://login.microsoftonline.com.
-credential = DefaultAzureCredential(authority=stack_cloud.endpoints.active_directory, tenant_id=tenant_id)
+credential = DefaultAzureCredential(authority=stack_cloud.endpoints.active_directory)
 
 resource_client = ResourceManagementClient(
     credential, subscription_id,
