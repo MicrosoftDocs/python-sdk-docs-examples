@@ -1,4 +1,4 @@
-vm = compute.virtual_machines.get(
+vm = compute_client.virtual_machines.get(
     'my_resource_group',
     'my_vm'
 )
