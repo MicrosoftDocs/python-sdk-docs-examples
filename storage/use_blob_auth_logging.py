@@ -44,6 +44,6 @@ try:
 
 except (
     exceptions.ClientAuthenticationError,
-    exceptions.HttpResponseError,
+    exceptions.HttpResponseError
 ) as e:
     print(e.message)
