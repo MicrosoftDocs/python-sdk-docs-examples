@@ -1,6 +1,6 @@
 # Provision the resource group
 
-az group create -n PythonAzureExample-VM-rg -l centralus
+az group create -n PythonAzureExample-VM-rg -l westus2
 
 # Provision a virtual network and subnet
 
@@ -21,6 +21,6 @@ az network nic create -g PythonAzureExample-VM-rg --vnet-name python-example-vne
 
 # Provision the virtual machine
 
-az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "centralus" \
+az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "westus2" \
     --nics python-example-nic --image UbuntuLTS \
     --admin-username azureuser --admin-password ChangePa$$w0rd24
