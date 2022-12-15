@@ -22,5 +22,5 @@ az network nic create -g PythonAzureExample-VM-rg --vnet-name python-example-vne
 rem Provision the virtual machine
 
 az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "westus2" ^
-    --nics python-example-nic --image UbuntuLTS ^
+    --nics python-example-nic --image UbuntuLTS --public-ip-sku Standard ^
     --admin-username azureuser --admin-password ChangePa$$w0rd24
