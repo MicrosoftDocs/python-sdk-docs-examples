@@ -1,14 +1,20 @@
+# Replace <your_github_user_name> with the account name of the fork.
+
+REPO_NAME="https://github.com/<your_github_user_name>/python-docs-hello-world"
+APP_NAME=PythonAzureExample-WebApp-$(echo $RANDOM | md5sum | head -c 6)
+
 az group create -l centralus -n PythonAzureExample-WebApp-rg
 
-az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
+az appservice plan create -n PythonAzureExample-WebApp-plan -g PythonAzureExample-WebApp-rg \
+   --is-linux --sku F1
 
-az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
+echo "Creating app : "$APP_NAME
+az webapp create -g PythonAzureExample-WebApp-rg -n $APP_NAME \
     --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
 
 # You can use --deployment-source-url with the first create command. It is shown here
 # to match the sequence of the Python code.
 
-az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
-    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
-
-# Replace <your_fork> with the specific URL of your forked repository.
+az webapp create -n $APP_NAME -g PythonAzureExample-WebApp-rg \
+    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8" \
+    --deployment-source-url $REPO_NAME
