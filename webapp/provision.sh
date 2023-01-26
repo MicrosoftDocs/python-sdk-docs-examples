@@ -1,6 +1,6 @@
 # Replace <your_github_user_name> with the account name of the fork.
 
-REPO_NAME="https://github.com/<your_github_user_name>/python-docs-hello-world"
+REPO_URL="https://github.com/<your_github_user_name>/python-docs-hello-world"
 APP_NAME=PythonAzureExample-WebApp-$(echo $RANDOM | md5sum | head -c 6)
 
 az group create -l centralus -n PythonAzureExample-WebApp-rg
@@ -17,4 +17,4 @@ az webapp create -g PythonAzureExample-WebApp-rg -n $APP_NAME \
 
 az webapp create -n $APP_NAME -g PythonAzureExample-WebApp-rg \
     --plan PythonAzureExample-WebApp-plan --runtime "python|3.8" \
-    --deployment-source-url $REPO_NAME
+    --deployment-source-url $REPO_URL
