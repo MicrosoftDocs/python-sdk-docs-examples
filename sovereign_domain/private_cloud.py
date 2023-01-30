@@ -4,10 +4,10 @@ from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential
 from azure.profiles import KnownProfiles
 
-# Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID and
-# AZURE_TENANT_ID environment variables
+# Set environment variable AZURE_SUBSCRIPTION_ID as well as environment variables
+# for DefaultAzureCredential. For combinations of environment variables, see
+# https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-tenant_id = os.environ["AZURE_TENANT_ID"]
 
 stack_cloud = get_cloud_from_metadata_endpoint("https://contoso-azurestack-arm-endpoint.com")
 
