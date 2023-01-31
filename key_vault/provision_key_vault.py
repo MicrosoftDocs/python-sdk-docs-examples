@@ -68,7 +68,7 @@ poller = keyvault_client.vaults.begin_create_or_update(
     RESOURCE_GROUP_NAME,
     KEY_VAULT_NAME_A,
     VaultCreateOrUpdateParameters(
-        location = "centralus",
+        location = LOCATION,
         properties = VaultProperties(
             tenant_id = tenant_id,
             sku = Sku(
@@ -99,7 +99,7 @@ poller = keyvault_client.vaults.begin_create_or_update(
     RESOURCE_GROUP_NAME,
     KEY_VAULT_NAME_B,
     {
-        'location': 'centralus',
+        'location': LOCATION,
         'properties': {
             'sku': {
                 'name': 'standard',
