@@ -1,7 +1,7 @@
 import random, os
 from azure.identity import AzureCliCredential
 from azure.mgmt.resource import ResourceManagementClient
-from azure.mgmt.rdbms.mysql_flexibleservers import MySQLManagementClient
+from azure.mgmt.rdbms.mysql import MySQLManagementClient
 from azure.mgmt.rdbms.mysql.models import ServerForCreate, ServerPropertiesForDefaultCreate, ServerVersion
 
 # Acquire a credential object using CLI-based authentication.
@@ -35,7 +35,7 @@ print(f"Provisioned resource group {rg_result.name}")
 #
 # Also set DB_USER_NAME and DB_USER_PASSWORD variables to avoid using the defaults.
 
-db_server_name = os.environ.get("DB_SERVER_NAME", f"pythonzzureexample-mysql-flex-{random.randint(1,100000):05}")
+db_server_name = os.environ.get("DB_SERVER_NAME", f"PythonAzureExample-MySQL-{random.randint(1,100000):05}")
 db_admin_name = os.environ.get("DB_ADMIN_NAME", "azureuser")
 db_admin_password = os.environ.get("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
 
