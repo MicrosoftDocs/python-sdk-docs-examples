@@ -6,8 +6,9 @@ poller = compute_client.disks.begin_create_or_update(
     {
         'location': 'eastus',
         'creation_data': {
-            'create_option': DiskCreateOption.import_enum,
-            'source_uri': 'https://bg09.blob.core.windows.net/vm-images/non-existent.vhd'
+            'create_option': DiskCreateOption.IMPORT,
+            'storage_account_id': '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>',
+            'source_uri': 'https://<storage-account-name>.blob.core.windows.net/vm-images/test.vhd'
         }
     }
 )
