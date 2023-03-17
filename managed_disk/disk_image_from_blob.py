@@ -2,7 +2,7 @@ from azure.mgmt.compute.models import OperatingSystemStateTypes, HyperVGeneratio
 
 poller = compute_client.images.begin_create_or_update(
     'my_resource_group',
-    'my_disk_name',
+    'my_image_name',
     {
         'location': 'eastus',
         'storage_profile': {
