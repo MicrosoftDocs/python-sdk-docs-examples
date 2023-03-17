@@ -4,7 +4,7 @@ async_snapshot_creation = self.compute_client.snapshots.begin_create_or_update(
         'my_resource_group',
         'mySnapshot',
         {
-            'location': 'westus',
+            'location': 'eastus',
             'creation_data': {
                 'create_option': 'Copy',
                 'source_uri': managed_disk.id
