@@ -9,7 +9,7 @@ poller = compute_client.disks.begin_create_or_update(
     {
         'location': 'eastus',
         'creation_data': {
-            'create_option': DiskCreateOption.copy,
+            'create_option': DiskCreateOption.COPY,
             'source_resource_id': managed_disk.id
         }
     }
