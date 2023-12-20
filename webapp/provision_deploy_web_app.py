@@ -89,7 +89,8 @@ poller = app_service_client.web_apps.begin_create_or_update_source_control(RESOU
     { 
         "location": "GitHub",
         "repo_url": REPO_URL,
-        "branch": "master"
+        "branch": "master",
+        "is_manual_integration": True
     }
 )
 
