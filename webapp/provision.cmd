@@ -19,3 +19,10 @@ rem to match the sequence of the Python code.
 az webapp create -n %appName% -g PythonAzureExample-WebApp-rg ^
     --plan PythonAzureExample-WebApp-plan --runtime "python|3.8" ^
     --deployment-source-url %repoUrl% 
+
+rem The previous command sets up External Git deployment from the specified repository. This 
+rem command triggers a pull from the repository.
+
+az webapp deployment source sync --name %appName% --resource-group PythonAzureExample-WebApp-rg
+
+

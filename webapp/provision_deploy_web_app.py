@@ -97,3 +97,13 @@ poller = app_service_client.web_apps.begin_create_or_update_source_control(RESOU
 sc_result = poller.result()
 
 print(f"Set source control on web app to {sc_result.branch} branch of {sc_result.repo_url}")
+
+# Step 5: Deploy the code using the repository and branch configured in the previous step.
+#
+# If you push subsequent code changes to the repo and branch, you must call this method again
+# or use another Azure tool like the Azure CLI or Azure portal to redeploy. 
+# Note: By default, the method returns None.
+
+app_service_client.web_apps.sync_repository(RESOURCE_GROUP_NAME, WEB_APP_NAME)
+
+print(f"Deploy code")
