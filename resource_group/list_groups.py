@@ -1,10 +1,10 @@
 # Import the needed credential and management objects from the libraries.
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 import os
 
 # Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
