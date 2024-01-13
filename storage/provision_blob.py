@@ -2,12 +2,12 @@ import os, random
 
 # Import the needed management objects from the libraries. The azure.common library
 # is installed automatically with the other libraries.
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
 
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
+# Acquire a credential object.
+credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
