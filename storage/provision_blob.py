@@ -35,9 +35,6 @@ print(f"Provisioned resource group {rg_result.name}")
 
 storage_client = StorageManagementClient(credential, subscription_id)
 
-# This example uses the CLI profile credentials because we assume the script
-# is being used to provision the resource in the same way the Azure CLI would be used.
-
 STORAGE_ACCOUNT_NAME = f"pythonazurestorage{random.randint(1,100000):05}"
 
 # You can replace the storage account here with any unique name. A random number is used
