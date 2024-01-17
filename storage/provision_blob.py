@@ -2,12 +2,12 @@ import os, random
 
 # Import the needed management objects from the libraries. The azure.common library
 # is installed automatically with the other libraries.
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
 
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
+# Acquire a credential object.
+credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
@@ -34,9 +34,6 @@ print(f"Provisioned resource group {rg_result.name}")
 # Step 2: Provision the storage account, starting with a management object.
 
 storage_client = StorageManagementClient(credential, subscription_id)
-
-# This example uses the CLI profile credentials because we assume the script
-# is being used to provision the resource in the same way the Azure CLI would be used.
 
 STORAGE_ACCOUNT_NAME = f"pythonazurestorage{random.randint(1,100000):05}"
 
