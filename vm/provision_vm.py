@@ -1,7 +1,7 @@
 # Import the needed credential and management objects from the libraries.
 import os
 
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.resource import ResourceManagementClient
@@ -11,8 +11,8 @@ print(
 minute or two."
 )
 
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
+# Acquire a credential object.
+credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
@@ -20,8 +20,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 # Step 1: Provision a resource group
 
-# Obtain the management object for resources, using the credentials
-# from the CLI login.
+# Obtain the management object for resources.
 resource_client = ResourceManagementClient(credential, subscription_id)
 
 # Constants we need in multiple places: the resource group name and
