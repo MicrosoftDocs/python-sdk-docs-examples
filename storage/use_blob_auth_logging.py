@@ -39,7 +39,7 @@ try:
         credential=credential,
     )
 
-    with open("./sample-blob.txt", "rb") as data:
+    with open("./sample-source.txt", "rb") as data:
         blob_client.upload_blob(data, logging_body=True, logging_enable=True)
 
 except (
