@@ -14,17 +14,17 @@ logger.setLevel(logging.DEBUG)
 logger = logging.getLogger("azure.storage.blob")
 logger.setLevel(logging.DEBUG)
 
+# Direct logging output to stdout. Without adding a handler,
+# no logging output is visible.
+handler = logging.StreamHandler(stream=sys.stdout)
+logger.addHandler(handler)
+
 print(
     f"Logger enabled for ERROR={logger.isEnabledFor(logging.ERROR)}, "
     f"WARNING={logger.isEnabledFor(logging.WARNING)}, "
     f"INFO={logger.isEnabledFor(logging.INFO)}, "
     f"DEBUG={logger.isEnabledFor(logging.DEBUG)}"
 )
-
-# Direct logging output to stdout. Without adding a handler,
-# no logging output is visible.
-handler = logging.StreamHandler(stream=sys.stdout)
-logger.addHandler(handler)
 
 try:
     credential = DefaultAzureCredential()
