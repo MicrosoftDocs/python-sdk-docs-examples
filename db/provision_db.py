@@ -1,11 +1,11 @@
 import random, os
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
-from azure.mgmt.rdbms.mysql import MySQLManagementClient
-from azure.mgmt.rdbms.mysql.models import ServerForCreate, ServerPropertiesForDefaultCreate, ServerVersion
+from azure.mgmt.rdbms.mysql_flexibleservers import MySQLManagementClient
+from azure.mgmt.rdbms.mysql_flexibleservers.models import Server, ServerVersion
 
 # Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
@@ -13,7 +13,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 # Constants we need in multiple places: the resource group name and the region
 # in which we provision resources. You can change these values however you want.
 RESOURCE_GROUP_NAME = 'PythonAzureExample-DB-rg'
-LOCATION = "westus"
+LOCATION = "southcentralus"
 
 # Step 1: Provision the resource group.
 resource_client = ResourceManagementClient(credential, subscription_id)
@@ -35,7 +35,7 @@ print(f"Provisioned resource group {rg_result.name}")
 #
 # Also set DB_USER_NAME and DB_USER_PASSWORD variables to avoid using the defaults.
 
-db_server_name = os.environ.get("DB_SERVER_NAME", f"PythonAzureExample-MySQL-{random.randint(1,100000):05}")
+db_server_name = os.environ.get("DB_SERVER_NAME", f"python-azure-example-mysql-{random.randint(1,100000):05}")
 db_admin_name = os.environ.get("DB_ADMIN_NAME", "azureuser")
 db_admin_password = os.environ.get("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
 
@@ -45,13 +45,11 @@ mysql_client = MySQLManagementClient(credential, subscription_id)
 # Provision the server and wait for the result
 poller = mysql_client.servers.begin_create(RESOURCE_GROUP_NAME,
     db_server_name, 
-    ServerForCreate(
+    Server(
         location=LOCATION,
-        properties=ServerPropertiesForDefaultCreate(
-            administrator_login=db_admin_name,
-            administrator_login_password=db_admin_password,
-            version=ServerVersion.FIVE7
-        )
+        administrator_login=db_admin_name,
+        administrator_login_password=db_admin_password,
+        version=ServerVersion.FIVE7
     )
 )
 
