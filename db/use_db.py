@@ -8,7 +8,7 @@ db_admin_password = os.getenv("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
 db_name = os.getenv("DB_NAME", "example-db1")
 db_port = os.getenv("DB_PORT", 3306)
 
-connection = mysql.connector.connect(user=f"{db_admin_name}@{db_server_name}",
+connection = mysql.connector.connect(user=db_admin_name,
     password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com",
     port=db_port, database=db_name, ssl_ca='./BaltimoreCyberTrustRoot.crt.pem')
 
