@@ -13,7 +13,7 @@ from azure.storage.blob import BlobClient
 
 credential = DefaultAzureCredential()
 
-storage_url = "your_url"
+storage_url = "https://<storageaccountname>.blob.core.windows.net"
 
 blob_client = BlobClient(storage_url, container_name="blob-container-01",
     blob_name="sample-blob.txt", credential=credential,
