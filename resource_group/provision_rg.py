@@ -4,7 +4,7 @@ import os
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 
-# Acquire a credential object using DevaultAzureCredential.
+# Acquire a credential object using DefaultAzureCredential.
 credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
