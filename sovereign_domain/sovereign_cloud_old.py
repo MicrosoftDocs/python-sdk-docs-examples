@@ -1,9 +1,9 @@
 import os
 from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
-from azure.core import AzureClouds
 
 authority = AzureAuthorityHosts.AZURE_CHINA
+resource_manager = "https://management.chinacloudapi.cn"
 
 # Set environment variable AZURE_SUBSCRIPTION_ID as well as environment variables
 # for DefaultAzureCredential. For combinations of environment variables, see
@@ -15,9 +15,14 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 credential = DefaultAzureCredential(authority=authority)
 
 resource_client = ResourceManagementClient(
-    credential, subscription_id, cloud_setting=AzureClouds.AZURE_CHINA_CLOUD
+    credential,
+    subscription_id,
+    base_url=resource_manager,
+    credential_scopes=[resource_manager + "/.default"],
 )
 
 subscription_client = SubscriptionClient(
-    credential, cloud_setting=AzureClouds.AZURE_CHINA_CLOUD
+    credential,
+    base_url=resource_manager,
+    credential_scopes=[resource_manager + "/.default"],
 )
